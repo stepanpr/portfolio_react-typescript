@@ -1,0 +1,30 @@
+
+/* body {
+	height: 100vh;
+	border: 1px solid red;
+
+/* } */
+
+/*HEADER>>>*/
+.header {
+	display: flex;
+	justify-content: space-between;
+	/* flex-direction: column; */
+	width: 100%;
+	border: 1px solid red;
+	height: 100px;
+	background-color: rgb(76, 160, 27);
+	/* width: 30px; */
+}
+/*<<<HEADER*/
+
+.logo {
+	background-color: aquamarine;
+	margin-left: 5vw;
+}
+
+.menu {
+
+	background-color: blue;
+	margin-right: 5vw;
+}
