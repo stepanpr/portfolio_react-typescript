@@ -11,7 +11,10 @@ export const Content = () => {
 	});
 	return (
 		<div className={contentClassNames}>
-df
+			<div className={'container'}>
+
+				content
+			</div>
 		</div>
 	);
 }

@@ -10,8 +10,11 @@ export const Footer = () => {
 		'footer': true,
 	});
 	return (
-		<div className={footerClassNames}>
-			dfdf
-		</div>
+			<div className={footerClassNames}>
+				<div className={'container'}>
+
+				footer
+				</div>
+			</div>
 	);
 }
