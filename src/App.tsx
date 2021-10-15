@@ -29,30 +29,31 @@ const App: React.FunctionComponent = () => {
 	const { width } = useViewport();
 	console.log(width);
 	
+	const mediaQueryes = { 
+		isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }), 
+		isTabletOrMobile: useMediaQuery({ maxWidth: 1224 }),
+		isBigScreen: useMediaQuery({ minWidth: 1824 }),
+		isPortrait: useMediaQuery({ orientation: 'portrait' }),
+		isRetina: useMediaQuery({ minResolution: '2dppx' })
+	};
 
-	const isDesktopOrLaptop: boolean = useMediaQuery({ minWidth: 1224 });
-	// const isBigScreen = useMediaQuery({ minWidth: 1824 });
-	const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
-	// const isPortrait = useMediaQuery({ orientation: 'portrait' });
-	// const isRetina = useMediaQuery({ minResolution: '2dppx' });
-
-	// console.log(responsive.isDesktopOrLaptop);
+	console.log(mediaQueryes.isDesktopOrLaptop, ' : ', mediaQueryes.isTabletOrMobile);
 
 
   return (
 	  <div className={'main'}>
 		{/* <div className={'headerAndContent'}> */}
 			{/* <h1>Device Test!</h1> */}
-			{/* {isDesktopOrLaptop && <p>You are a desktop or laptop</p>}   */}
+			{mediaQueryes.isDesktopOrLaptop && <p>You are a desktop or laptop</p>}
 			{/* {isBigScreen && <p>You  have a huge screen</p>} */}
-			{/* {isTabletOrMobile && <p>You are a tablet or mobile phone</p>} */}
+			{mediaQueryes.isTabletOrMobile && <p>You are a tablet or mobile phone</p>}
 
 			{/* <p>Your are in {isPortrait ? 'portrait' : 'landscape'} orientation</p> */}
 			{/* {isRetina && <p>You are retina</p>} */}
 			
 			{/* {responsive.isDesktopOrLaptop && <p>You are a desktop or laptop</p>} */}
 
-			<Header isDesctopOrLaptop={isDesktopOrLaptop} isTabletOrMobile={isTabletOrMobile}/>
+			<Header mediaqQueries={mediaQueryes}/>
 			<Content></Content>
 			<Footer></Footer>
 

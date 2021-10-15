@@ -8,8 +8,8 @@ import Logo from './Logo';
 
 
 interface HeaderProps {
-	isDesctopOrLaptop: boolean;
-	isTabletOrMobile: boolean;
+	
+	mediaqQueries: any;
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = (props) => {
@@ -17,19 +17,19 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 
 	const headerClassNames = classnames({
 		'header_minWidth_1224': true,
-		'header_maxWidth_1224': props.isTabletOrMobile
+		'header_maxWidth_1224': props.mediaqQueries.isTabletOrMobile
 
 
 	});
 
 	const logoClassnames = classnames({
 		'logo_minWidth_1224': true,
-		'logo_maxWidth_1224': props.isTabletOrMobile
+		'logo_maxWidth_1224': props.mediaqQueries.isTabletOrMobile
 	})
 
 	const menuClassnames = classnames({
 		'menu_minWidth_1224': true,
-		'menu_maxWidth_1224': props.isTabletOrMobile
+		'menu_maxWidth_1224': props.mediaqQueries.isTabletOrMobile
 	});
 
 	return (
