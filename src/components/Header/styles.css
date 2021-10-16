@@ -18,7 +18,7 @@
 	align-items: center;
 	/* flex-direction: column; */
 	width: 100%;
-	/* border: 1px solid red; */
+	border: 1px dotted red;
 	height: 120px;
 	/* background:  linear-gradient(45deg, #21A038, #31C2A7); */
 	background:  linear-gradient(180deg, #B9D7EA, #F7FBFC);
@@ -28,6 +28,21 @@
 	/* width: 30px; */
 }
 
+/* !вариант с элементами хедера помещёнными в контейнер (убрать отступы у logo и menu)*/
+.header-container {
+	flex-shrink: 0;
+	display: flex;
+	/* align-content:center; */
+	justify-content: space-between;
+	align-items: center;
+	/* flex-direction: column; */
+	width: 100%;
+	border: 1px dotted red;
+	height: 120px;
+	/* background:  linear-gradient(45deg, #21A038, #31C2A7); */
+	background:  linear-gradient(180deg, #B9D7EA, #F7FBFC);
+	/* background:  linear-gradient(180deg, #21A038, #31C2A7, white); */
+}
 
 /*<<<HEADER*/
 
@@ -94,47 +109,46 @@
 
 
 
-/* nav {
-	height: 50px;
-	width: 100%;
-	background-color: green;
-} */
 
-.bbtn-x {
+/****bbtn: базовые стили**********>>>>>*/
+
+.bbtn {
 	/* display: none; */
 	transform: translateY(-500%);
-
+	/* border: 1px solid red; */
 	margin-right: 11vw;
-	width: 25px;
-	height: 25px;
+	width: 31px;
+	height: 31px;
 	/* margin-right: 20px; */
 	position: relative;
 	cursor: pointer;
 }
-.bbtn-x::before {
+.bbtn::before {
 	content: '';
 	position: absolute;
 	top: 0;
-	width: 30px;
+	width: 31px;
 	background-color: #000;
 	height: 2px;
 }
 
-.bbtn-x span {
+.bbtn__span {
 	position: absolute;
-	top: 11px;
-	width: 30px;
+	top: 14px;
+	width: 31px;
 	background-color: #000;
 	height: 2px;
 }
-.bbtn-x::after {
+.bbtn::after {
 	content: '';
 	position: absolute;
 	bottom: 0;
-	width: 30px;
+	width: 31px;
 	background-color: #000;	
 	height: 2px;
 }
+/*<<<<<***bbtn***********/
+
 
 /*********************************************************/
 /***************************M*****************************/
@@ -180,12 +194,32 @@
 	/* #0c4857; */
 }
 
+/****bbtn: изменения стостояния**********>>>>>*/
 
-.bbtn-m {
-	transition: all 0.2s;
+.bbtn-visible {
+	transition: all 0.5s;
 	transform: translateX(0);
-	/* display: block; */
 }
+
+.bbtn__span-invisible {
+	display: none;
+}
+
+.bbtn-rotated {
+	/* transition: all 0.5s; */
+	/* transform: translateX(0); */
+	transform: rotate(90deg);
+}
+
+.bbtn-rotated::before {
+	transform: translateY(16px) rotate(45deg);
+}
+
+.bbtn-rotated::after {
+	transform: translateY(-13px) rotate(137deg);
+}
+/*<<<<<***bbtn***********/
+
 .menu-m {
 	
 	position: fixed;
@@ -263,6 +297,9 @@
 /***************************S*****************************/
 /*********************************************************/
 
+/* .bbtn-s {
+	margin-right: 8vw;
+} */
 .logo-s {
 	margin-left: 3vw;
 }

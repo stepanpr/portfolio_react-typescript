@@ -5,6 +5,8 @@ import {Header}  from './components/Header/';
 import { Footer } from './components/Footer/';
 import { Content } from  './components/Content/';
 
+import { ILink } from './interfaces/ILink'
+
 /* Viewport hook (можно использовать вместо 'react-responsive') */
 const useViewport = () => {
 	const [width, setWidth] = React.useState(window.innerWidth);
@@ -20,7 +22,7 @@ const useViewport = () => {
 
 const App: React.FunctionComponent = () => {
 
-	const menuItems = [{value: 'главная', href: '#', icon: 'anchor'}, {value: 'контакты', href: '#', icon: 'anchor'},];
+	const menuItems: ILink[] = [{value: 'главная', href: 'https://sberbank.ru'}, {value: 'контакты', href: '#'},];
 	const [menuActive, setMenuActive] = useState(false);
 	// const [responsive, setResponsive] = useState({
 	// 	isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }),
@@ -28,6 +30,8 @@ const App: React.FunctionComponent = () => {
 	// })
 	// React.useEffect(() => {
 	//   }, []);
+
+
 	const { width } = useViewport();
 	console.log(width);
 	
@@ -59,7 +63,7 @@ const App: React.FunctionComponent = () => {
 			
 			{/* {responsive.isDesktopOrLaptop && <p>You are a desktop or laptop</p>} */}
 
-			<Header menuActive={menuActive} setMenuActive={setMenuActive} mediaqQueries={mediaQueries} menuItems={menuItems}/>
+			<Header menuActive={menuActive} setMenuActive={setMenuActive} mediaQueries={mediaQueries} menuItems={menuItems}/>
 			<Content mediaQueries={mediaQueries} />
 			<Footer mediaQueries={mediaQueries} />
 
