@@ -9,46 +9,68 @@ import Logo from './Logo';
 
 interface HeaderProps {
 	
+	menuActive: boolean;
+	setMenuActive: any;
 	mediaqQueries: any;
+	menuItems: any;
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 
 
 	const headerClassNames = classnames({
-		'header_minWidth_1224': true,
-		'header_maxWidth_1224': props.mediaqQueries.isTabletOrMobile
-
-
+		'header-x': true,
+		'header-m': props.mediaqQueries.isTabletOrMobile
 	});
 
 	const logoClassnames = classnames({
-		'logo_minWidth_1224': true,
-		'logo_maxWidth_1224': props.mediaqQueries.isTabletOrMobile
+		'logo-x': true,
+		'logo-m': props.mediaqQueries.isTabletOrMobile,
+		'logo-s': props.mediaqQueries.isMobile,
 	})
 
 	const menuClassnames = classnames({
-		'menu_minWidth_1224': true,
-		'menu_maxWidth_1224': props.mediaqQueries.isTabletOrMobile
+		'menu-x': true,
+		'menu-m': props.mediaqQueries.isTabletOrMobile,
+		'menu-active': props.menuActive
 	});
+	const bbtnClassnames = classnames({
+		'bbtn-x': true,
+		'bbtn-m': props.mediaqQueries.isTabletOrMobile,
+	});
+	console.log(props.menuActive , 'd343434343dd')
 
 	return (
 		<div className={headerClassNames}>
 			{/* <div className={'header-container'}> */}
 
 			<div className={logoClassnames}>
-				<Logo/>
+				{/* <Logo/> */}
 				<span> Site Header</span>
 			</div>
-				<ul className={menuClassnames}>
-					<li>главная</li>
-					<li>контакты</li>
+
+
+			<div className={bbtnClassnames} onClick={() => props.setMenuActive(!props.menuActive)}>
+				<span/>
+			</div>
+
+			<div className={menuClassnames}>
+				
+				<ul>
+					{props.menuItems.map((menuItem: any) =>
+						<li>
+							<a href={menuItem.href}>{menuItem.value}</a>
+							{/* <span className="material-icons">{menuItem.icon}</span> */}
+						</li>
+					)}
 				</ul>
+			</div>
+
+
 			{/* </div> */}
 		</div>
 	);
 }
 
-// export default Header;
 
 

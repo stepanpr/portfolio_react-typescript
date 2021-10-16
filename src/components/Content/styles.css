@@ -1,11 +1,11 @@
 
 
 .content {
-	border: 1px solid rgb(0, 0, 0);
+	/* border: 1px solid rgb(0, 0, 0); */
 	/* background-color: #31C2A7; */
 	background-color: #F7FBFC;
 
-	/* height: calc(100vh - 200px - 100px);  вариант прижатого к низу фктера с вычетанием высоты футера и хедера */
+	/* height: calc(100vh - 200px - 100px);  вариант прижатого к низу футера с вычетанием высоты футера и хедера */
 	flex-grow: 1;
 	/* height: calc(100% - 100px); */
 	/* min-height: 200px; */

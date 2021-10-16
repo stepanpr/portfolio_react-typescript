@@ -20,6 +20,8 @@ const useViewport = () => {
 
 const App: React.FunctionComponent = () => {
 
+	const menuItems = [{value: 'главная', href: '#', icon: 'anchor'}, {value: 'контакты', href: '#', icon: 'anchor'},];
+	const [menuActive, setMenuActive] = useState(false);
 	// const [responsive, setResponsive] = useState({
 	// 	isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }),
 	// 	isTabletOrMobile: useMediaQuery({ maxWidth: 1224 })
@@ -29,33 +31,37 @@ const App: React.FunctionComponent = () => {
 	const { width } = useViewport();
 	console.log(width);
 	
-	const mediaQueryes = { 
+	const mediaQueries = { 
 		isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }), 
 		isTabletOrMobile: useMediaQuery({ maxWidth: 1224 }),
+		isMobile: useMediaQuery({ maxWidth: 720 }),
 		isBigScreen: useMediaQuery({ minWidth: 1824 }),
 		isPortrait: useMediaQuery({ orientation: 'portrait' }),
 		isRetina: useMediaQuery({ minResolution: '2dppx' })
 	};
 
-	console.log(mediaQueryes.isDesktopOrLaptop, ' : ', mediaQueryes.isTabletOrMobile);
+	console.log(mediaQueries.isDesktopOrLaptop, ' : ', mediaQueries.isTabletOrMobile);
 
-
+	console.log(menuActive , 'ddddddddddddd')
   return (
 	  <div className={'main'}>
+			<div className={menuActive && !mediaQueries.isDesktopOrLaptop ? 'blur' : ''}/>
+			
+
 		{/* <div className={'headerAndContent'}> */}
 			{/* <h1>Device Test!</h1> */}
-			{mediaQueryes.isDesktopOrLaptop && <p>You are a desktop or laptop</p>}
+			{/* {mediaQueries.isDesktopOrLaptop && <p>You are a desktop or laptop</p>} */}
 			{/* {isBigScreen && <p>You  have a huge screen</p>} */}
-			{mediaQueryes.isTabletOrMobile && <p>You are a tablet or mobile phone</p>}
+			{/* {mediaQueries.isTabletOrMobile && <p>You are a tablet or mobile phone</p>} */}
 
 			{/* <p>Your are in {isPortrait ? 'portrait' : 'landscape'} orientation</p> */}
 			{/* {isRetina && <p>You are retina</p>} */}
 			
 			{/* {responsive.isDesktopOrLaptop && <p>You are a desktop or laptop</p>} */}
 
-			<Header mediaqQueries={mediaQueryes}/>
-			<Content></Content>
-			<Footer></Footer>
+			<Header menuActive={menuActive} setMenuActive={setMenuActive} mediaqQueries={mediaQueries} menuItems={menuItems}/>
+			<Content mediaQueries={mediaQueries} />
+			<Footer mediaQueries={mediaQueries} />
 
 	</div>
 
