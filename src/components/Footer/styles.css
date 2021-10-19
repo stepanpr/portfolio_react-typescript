@@ -36,3 +36,14 @@
 	margin-bottom: 15px;
 	line-height: 25px;
 }
+
+.error-block {
+	position: relative;
+}
+.error-message {
+	color: red;
+	display: block;
+	position: absolute;
+	font-size: 10px;
+	top: -45px;
+}

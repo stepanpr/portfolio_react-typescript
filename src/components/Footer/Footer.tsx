@@ -28,18 +28,23 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 		register, 
 		handleSubmit,
 		formState: { errors, submitCount },
-		watch
+		watch,
+		clearErrors
 	} = useForm();
 
-	const handler = (data: any) => { console.log('success!', data) };
+	/* обработка отправленных данных */
+	const onSubmit = (data:any, e:any) => console.log(data, e);
+	// const handler = (data: any) => { console.log('success!', data) };
+	/* обработка ошибок */
+	const onError = (errors: any, e: any) => console.log(errors.name, e);
 
 	const name = watch('name');
 	const phone = watch('phone');
 	const email = watch('email');
-	const message = watch('message');
+	const message = watch('msg');
 
-
-	console.log(name, phone, email, message);
+	// onChange={() => clearErrors(["name", "phone"])}
+	console.log('WATCH:', name, phone, email, message);
 
 	return (
 			<div className={footerClassNames}>
@@ -49,15 +54,30 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 							footer
 						</div>
 						<div className="footer-container__form-box">
-							<form onSubmit={handleSubmit(handler)}>
-								<input type="text" {...register('name', {required: true})} placeholder='Имя' />
-								<input type="text" {...register('phone')} placeholder='Телефон' />
-								<input type="text" {...register('email')} placeholder='Email' />
-								<textarea {...register('message')}></textarea>
 
+							<form onSubmit={handleSubmit(onSubmit, onError)}>
+								
+								<input type="text" 
+								{...register('name', 
+								{required: 'Поле \'Имя\' обязательно для заполнения', minLength: {value: 2, message: 'Слишком короткое имя'}, 
+								maxLength: {value: 20, message: 'Слишком длинное имя'}})} placeholder='Имя' />
+								<div className='error-block'>{errors.name && <p className='error-message'> {errors.name.message} </p>}</div>
+								
+								
+								<input type="text" 
+								{...register('phone', {required: 'Введите номер телефона', minLength: {value: 2, message: 'Номер слишком короткий'}, 
+								maxLength: {value: 20, message: 'Слишком длинный номер'}})} placeholder='Телефон' />
+								<div className='error-block'>{errors.phone && <p className='error-message'> {errors.phone.message} </p>}</div>
+
+								<input type="text" {...register('email', {required: 'Введите e-mail'})} placeholder='Email' />
+								<div className='error-block'>{errors.email && <p className='error-message'> {errors.email.message} </p>}</div>
+
+								<textarea {...register('msg', {required: 'Введите текст сообщения', minLength: {value: 2, message: 'Сообщение слишком короткое'} })}></textarea>
+								<div className='error-block'>{errors.msg && <p className='error-message'> {errors.msg.message} </p>}</div>
 
 								<input type="submit" />
 							</form>
+
 						</div>
 					</div>	
 				</div>
