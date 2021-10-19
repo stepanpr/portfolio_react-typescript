@@ -96,8 +96,7 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 						
 						<ul>
 							{props.menuItems.map((menuItem: ILink, i: number) =>
-								<li key={i.toString()} onMouseOver={()=> {
-									console.log('move'); }}>
+								<li key={i.toString()} onMouseOver={()=> {console.log('move') }}>
 									<a href={menuItem.href}>{menuItem.value}</a>
 									 <span className={underlineLinkClassName}></span> 
 									{/* <span className={underlineLinkClassName}></span> */}

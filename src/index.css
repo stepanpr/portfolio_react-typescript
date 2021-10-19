@@ -45,25 +45,24 @@ code {
 	flex-direction: column;
 }
 
+/* ширина контейнера размера X */
 .container-x {
 	width: 60%;
 	border: 1px dotted red;
-	/* border: 1px solid black; */
 	margin: 0 auto;
 }
 
+/* ширина контейнера размера M */
 .container-m {
 	width: 80%;
 	border: 1px dotted rgb(28, 44, 3);
-	/* border: 1px solid rgb(35, 233, 101); */
 	margin: 0 auto;
 }
 
+/* ширина контейнера размера S */
 .container-s {
 	width: 95%;
-	/* border: 1px solid rgb(95, 24, 89); */
 	border: 1px dotted rgb(240, 237, 61);
-/*  */
 	margin: 0 auto;
 }
 
