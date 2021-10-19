@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames';
 
 import './styles.css'
 import Logo from './Logo';
+import { ILink } from '../../interfaces/ILink'
 // import logo from './logo.svg';
 // import { ReactComponent as YourSvg } from './logo.svg';
 
@@ -12,15 +13,15 @@ interface HeaderProps {
 	menuActive: boolean;
 	setMenuActive: any;
 	mediaQueries: any;
-	menuItems: any;
+	menuItems: ILink[] ;
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const handleEscPress = (event: any) => {
-			if (event.keyCode === 27)
+			if (event.keyCode === 27 && props.menuActive)
 				props.setMenuActive(!props.menuActive);
 		}
 		window.addEventListener("keydown", handleEscPress);
@@ -29,11 +30,11 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 		};
 	  });
 
-	React.useEffect(() => {
-		const handleClick = () => props.menuActive ? props.setMenuActive(!props.menuActive) : 0;
-		window.addEventListener("click", handleClick);
-		return () => window.removeEventListener("click", handleClick);
-	});
+	// useEffect(() => {
+	// 	const handleClick = () => props.menuActive ? props.setMenuActive(!props.menuActive) : 0;
+	// 	window.addEventListener("click", handleClick);
+	// 	return () => window.removeEventListener("click", handleClick);
+	// });
 
 	const headerClassNames = classnames({
 		'header-x': true,
@@ -61,6 +62,10 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 		'bbtn__span': true,
 		'bbtn__span-invisible': props.menuActive,
 	});
+
+	const underlineLinkClassName = classnames({
+		'underlineLink': props.mediaQueries.isDesktopOrLaptop
+	});
 	console.log(props.menuActive , 'd343434343dd')
 
 	// const containerClassNames = classnames({   !вариант с элементами хедера помещёнными в контейнер
@@ -69,6 +74,8 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 	// 	'container-s': props.mediaQueries.isMobile,
 	// });
 
+	// let sp = <span></span>;
+	// sp.addEventListener("mouseover", setColor);
 	return (
 
 		<div className={headerClassNames}>
@@ -85,12 +92,15 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 						<span className={bbtnSpanClassNames}/>
 					</div>
 
-					<div className={menuClassNames}>
+					<div className={menuClassNames} onClick={(e)=> e.stopPropagation()}>
 						
 						<ul>
-							{props.menuItems.map((menuItem: any) =>
-								<li>
+							{props.menuItems.map((menuItem: ILink, i: number) =>
+								<li key={i.toString()} onMouseOver={()=> {
+									console.log('move'); }}>
 									<a href={menuItem.href}>{menuItem.value}</a>
+									 <span className={underlineLinkClassName}></span> 
+									{/* <span className={underlineLinkClassName}></span> */}
 									{/* <span className="material-icons">{menuItem.icon}</span> */}
 								</li>
 							)}

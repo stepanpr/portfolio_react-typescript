@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from 'classnames';
+import { useForm } from "react-hook-form";
 
 import './styles.css'
 
@@ -19,11 +20,30 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 		'container-s': props.mediaQueries.isMobile,
 	});
 
+	const { 
+		register, 
+		handleSubmit 
+	} = useForm();
+
+	const handler = (data: any) => { console.log('success!', data) }
+
 	return (
 			<div className={footerClassNames}>
 				<div className={containerClassNames}>
 
-				footer
+					<div>footer</div>
+					<div>
+						<form onSubmit={handleSubmit(handler)}>
+							<input type="text" {...register('name')} placeholder='Имя' />
+							<input type="text" {...register('phone')} placeholder='Телефон' />
+							<input type="text" {...register('email')} placeholder='Email' />
+							<textarea {...register('message')}></textarea>
+
+
+							<input type="submit" />
+						</form>
+					</div>
+
 				</div>
 			</div>
 	);

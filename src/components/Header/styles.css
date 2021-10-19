@@ -18,7 +18,7 @@
 	align-items: center;
 	/* flex-direction: column; */
 	width: 100%;
-	border: 1px dotted red;
+	/* border: 1px dotted red; */
 	height: 120px;
 	/* background:  linear-gradient(45deg, #21A038, #31C2A7); */
 	background:  linear-gradient(180deg, #B9D7EA, #F7FBFC);
@@ -73,7 +73,7 @@
 
 
 .menu-x {
-	border: 1px solid #769FCD;
+	/* border: 1px solid #769FCD; */
 	/* display: inline; */
 	margin-right: 20vw;
 	/* width: 256px; */
@@ -93,7 +93,7 @@
 	color: #769FCD;
 	height: 30px;
 	/* font-size: 21px; */
-	border: 1px solid #769FCD;
+	/* border: 1px solid #769FCD; */
 	/* display: inline-block; */
 	padding: 0 20px;
 	/* width: 100px; */
@@ -102,11 +102,41 @@
 }
 
 .menu-x ul li a {
-	color: #769FCD;
-	font-size: 21px;
+	color: var(--b-menu);
+	/* color: #769FCD; */
+	font-size: 1.3rem;
 	text-decoration: none;
 }
 
+
+/* .underlineLink {
+	display: block;
+	height: 2px;
+	width: 100%;
+	background-color: #000;
+} */
+
+
+.menu-x ul li a:after {
+	display: block;
+	content: "";
+	height: 1px; 
+	width: 0%;
+	/* opacity: 0; */
+	background-color: var(--b-menu);
+	/* transition: width 0.4s ease-in-out; */
+	transition: 0.4s ease-in-out;
+ }
+.menu-x ul li a:hover:after,
+a:focus:after {
+width: 100%;
+opacity: 1;
+/* height: 2px;  */
+/* transition: 0.5s ease-in-out; */
+}
+.menu-x ul li a:hover{
+color: #4c85a8;
+} 
 
 
 
@@ -273,16 +303,44 @@
 .menu-m ul li a {
 	color: #F7FBFC;
 	/* border: 1px solid #575d63; */
-	display: block;
-	width: 100%;
+	display: inline-block;
+	/* width: 100%; */
 	height: 100%;
-	padding-left: 20px;
+	/* padding-left: 20px; */
+	margin-left: 20px;
 	/* text-align: center; */
 	/* line-height: 1.7rem; */
 	font-size: 1.5rem;
 	text-decoration: none;
 }
 
+
+.menu-m ul li a:after {
+	display: none;
+	/* content: "";
+	height: 2px; 
+	width: 100%;
+	width: 0%;
+	opacity: 0;
+	background-color: #B9D7EA;
+	transition: width 0.4s ease-in-out;
+	transition: 0.4s ease-in-out; */
+ }
+/* .menu-m ul li a:hover:after,
+a:focus:after {
+width: 100%;
+opacity: 1;
+transition: 0.4s ease-in-out;
+} */
+.menu-m ul li a:hover {
+	color: #F7FBFC ;
+} 
+
+
+
+
+
+/* размытие фона меню */
 .blur {
 	width: 100vw;
 	height: 100vh;

@@ -23,6 +23,20 @@ code {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+	--b-gray: #F7FBFC;
+	--b-light: #D6E6F2;
+	--b-medium: #B9D7EA;
+	--b-intense: #769FCD;
+	--b-menu: #4c85a8;
+
+/* #F7FBFC b-gray*/
+/* #D6E6F2 b-light*/
+/* #B9D7EA b-medium*/
+/* #769FCD b-intense*/
+/* #4c85a8 b-menu*/
+}
+
 .main {
 	min-width: 408px;
 	height: 100vh;
@@ -33,19 +47,23 @@ code {
 
 .container-x {
 	width: 60%;
-	border: 1px solid black;
+	border: 1px dotted red;
+	/* border: 1px solid black; */
 	margin: 0 auto;
 }
 
 .container-m {
 	width: 80%;
-	border: 1px solid rgb(35, 233, 101);
+	border: 1px dotted rgb(28, 44, 3);
+	/* border: 1px solid rgb(35, 233, 101); */
 	margin: 0 auto;
 }
 
 .container-s {
 	width: 95%;
-	border: 1px solid rgb(95, 24, 89);
+	/* border: 1px solid rgb(95, 24, 89); */
+	border: 1px dotted rgb(240, 237, 61);
+/*  */
 	margin: 0 auto;
 }
 

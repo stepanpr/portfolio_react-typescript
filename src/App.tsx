@@ -1,9 +1,9 @@
 import React, { useState, useReducer, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive'
 
-import {Header}  from './components/Header/';
-import { Footer } from './components/Footer/';
-import { Content } from  './components/Content/';
+import { Header }  from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { Content } from  './components/Content/Content';
 
 import { ILink } from './interfaces/ILink'
 
@@ -22,7 +22,7 @@ const useViewport = () => {
 
 const App: React.FunctionComponent = () => {
 
-	const menuItems: ILink[] = [{value: 'главная', href: 'https://sberbank.ru'}, {value: 'контакты', href: '#'},];
+	const menuItems: ILink[] = [{value: 'главная', href: '#'}, {value: 'about', href: '#'}, {value: 'контакты', href: 'https://sberbank.ru'},];
 	const [menuActive, setMenuActive] = useState(false);
 	// const [responsive, setResponsive] = useState({
 	// 	isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }),
@@ -48,7 +48,7 @@ const App: React.FunctionComponent = () => {
 
 	console.log(menuActive , 'ddddddddddddd')
   return (
-	  <div className={'main'}>
+	  <div className={'main'} onClick={()=> menuActive ? setMenuActive(!menuActive) : 0}>
 			<div className={menuActive && !mediaQueries.isDesktopOrLaptop ? 'blur' : ''}/>
 			
 
