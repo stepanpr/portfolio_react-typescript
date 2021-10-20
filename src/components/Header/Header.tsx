@@ -74,8 +74,6 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 	// 	'container-s': props.mediaQueries.isMobile,
 	// });
 
-	// let sp = <span></span>;
-	// sp.addEventListener("mouseover", setColor);
 	return (
 
 		<div className={headerClassNames}>

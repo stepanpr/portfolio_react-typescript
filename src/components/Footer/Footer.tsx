@@ -34,7 +34,6 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 
 	/* обработка отправленных данных */
 	const onSubmit = (data:any, e:any) => console.log(data, e);
-	// const handler = (data: any) => { console.log('success!', data) };
 	/* обработка ошибок */
 	const onError = (errors: any, e: any) => console.log(errors.name, e);
 
@@ -43,7 +42,6 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 	const email = watch('email');
 	const message = watch('msg');
 
-	// onChange={() => clearErrors(["name", "phone"])}
 	console.log('WATCH:', name, phone, email, message);
 
 	return (
@@ -51,7 +49,7 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 				<div className={containerClassNames}>
 					<div className={footerContainerClassNames}>
 						<div className="footer-container__social-box">
-							footer
+							<p>text text text</p> 
 						</div>
 						<div className="footer-container__form-box">
 
@@ -72,14 +70,20 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 								<input type="text" {...register('email', {required: 'Введите e-mail'})} placeholder='Email' />
 								<div className='error-block'>{errors.email && <p className='error-message'> {errors.email.message} </p>}</div>
 
-								<textarea {...register('msg', {required: 'Введите текст сообщения', minLength: {value: 2, message: 'Сообщение слишком короткое'} })}></textarea>
-								<div className='error-block'>{errors.msg && <p className='error-message'> {errors.msg.message} </p>}</div>
+								<textarea {...register('msg', {required: 'Введите текст сообщения', minLength: {value: 2, message: 'Сообщение слишком короткое'} })} 
+								placeholder='Сообщение'></textarea>
+								<div className='error-block'>{errors.msg && <p className='error-message-textarea'> {errors.msg.message} </p>}</div>
 
 								<input type="submit" />
 							</form>
 
 						</div>
-					</div>	
+					</div>
+					
+					<div className="copyright">
+					<p>react.ru</p>
+					<p>&copy; React Site</p>
+					</div>
 				</div>
 			</div>
 	);

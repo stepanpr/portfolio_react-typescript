@@ -24,13 +24,6 @@ const App: React.FunctionComponent = () => {
 
 	const menuItems: ILink[] = [{value: 'главная', href: '#'}, {value: 'about', href: '#'}, {value: 'контакты', href: 'https://sberbank.ru'},];
 	const [menuActive, setMenuActive] = useState(false);
-	// const [responsive, setResponsive] = useState({
-	// 	isDesktopOrLaptop: useMediaQuery({ minWidth: 1224 }),
-	// 	isTabletOrMobile: useMediaQuery({ maxWidth: 1224 })
-	// })
-	// React.useEffect(() => {
-	//   }, []);
-
 
 	const { width } = useViewport();
 	console.log(width);
@@ -46,23 +39,13 @@ const App: React.FunctionComponent = () => {
 
 	console.log(mediaQueries.isDesktopOrLaptop, ' : ', mediaQueries.isTabletOrMobile);
 
-	console.log(menuActive , 'ddddddddddddd')
+	
   return (
 	  <div className={'main'} onClick={()=> menuActive ? setMenuActive(!menuActive) : 0}>
 			<div className={menuActive && !mediaQueries.isDesktopOrLaptop ? 'blur' : ''}/>
 			
 
 		{/* <div className={'headerAndContent'}> */}
-			{/* <h1>Device Test!</h1> */}
-			{/* {mediaQueries.isDesktopOrLaptop && <p>You are a desktop or laptop</p>} */}
-			{/* {isBigScreen && <p>You  have a huge screen</p>} */}
-			{/* {mediaQueries.isTabletOrMobile && <p>You are a tablet or mobile phone</p>} */}
-
-			{/* <p>Your are in {isPortrait ? 'portrait' : 'landscape'} orientation</p> */}
-			{/* {isRetina && <p>You are retina</p>} */}
-			
-			{/* {responsive.isDesktopOrLaptop && <p>You are a desktop or laptop</p>} */}
-
 			<Header menuActive={menuActive} setMenuActive={setMenuActive} mediaQueries={mediaQueries} menuItems={menuItems}/>
 			<Content mediaQueries={mediaQueries} />
 			<Footer mediaQueries={mediaQueries} />

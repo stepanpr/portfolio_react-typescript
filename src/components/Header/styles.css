@@ -18,13 +18,13 @@
 	align-items: center;
 	/* flex-direction: column; */
 	width: 100%;
-	/* border: 1px dotted red; */
+	border: 1px dotted rgb(226, 239, 245);
 	height: 120px;
 	/* background:  linear-gradient(45deg, #21A038, #31C2A7); */
-	background:  linear-gradient(180deg, #B9D7EA, #F7FBFC);
+	background:  linear-gradient(180deg, #B9D7EA, #F7FBFC); 
+	/* background:  linear-gradient(180deg, #1272ad, #F7FBFC);  */
+	/* linear-gradient(45deg, #21A038, #31C2A7); */
 	/* background:  linear-gradient(180deg, #21A038, #31C2A7, white); */
-
-
 	/* width: 30px; */
 }
 
@@ -261,6 +261,7 @@ color: #4c85a8;
 	min-width: 150px;
 	box-shadow: 0 6px 8px 3px #769FCD;
 	transform: translateX(110%);
+	z-index: 1000;
 }
 
 .menu-active {

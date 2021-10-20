@@ -49,21 +49,21 @@ code {
 .container-x {
 	width: 60%;
 	border: 1px dotted red;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 /* ширина контейнера размера M */
 .container-m {
 	width: 80%;
 	border: 1px dotted rgb(28, 44, 3);
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 /* ширина контейнера размера S */
 .container-s {
 	width: 95%;
 	border: 1px dotted rgb(240, 237, 61);
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 /* .headerAndContent {
