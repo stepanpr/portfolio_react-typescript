@@ -30,7 +30,7 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 		};
 	  });
 
-	// useEffect(() => {
+	// useEffect(() => { 
 	// 	const handleClick = () => props.menuActive ? props.setMenuActive(!props.menuActive) : 0;
 	// 	window.addEventListener("click", handleClick);
 	// 	return () => window.removeEventListener("click", handleClick);

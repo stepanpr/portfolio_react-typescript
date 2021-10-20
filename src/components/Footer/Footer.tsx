@@ -33,7 +33,10 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 	} = useForm();
 
 	/* обработка отправленных данных */
-	const onSubmit = (data:any, e:any) => console.log(data, e);
+	const onSubmit = (data:any, e:any) => {
+		alert(JSON.stringify(data));
+		console.log(data, e);
+	}
 	/* обработка ошибок */
 	const onError = (errors: any, e: any) => console.log(errors.name, e);
 
