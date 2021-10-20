@@ -13,7 +13,7 @@ interface HeaderProps {
 	menuActive: boolean;
 	setMenuActive: any;
 	mediaQueries: any;
-	menuItems: ILink[] ;
+	menuItems: ILink[];
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = (props) => {

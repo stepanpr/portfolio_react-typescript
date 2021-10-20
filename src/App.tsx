@@ -22,7 +22,7 @@ const useViewport = () => {
 
 const App: React.FunctionComponent = () => {
 
-	const menuItems: ILink[] = [{value: 'главная', href: '#'}, {value: 'about', href: '#'}, {value: 'контакты', href: 'https://sberbank.ru'},];
+	const menuItems: ILink[] = [{value: 'главная', href: '#'}, {value: 'about', href: 'https://sberbank.ru'}, {value: 'контакты', href: '#contact'},];
 	const [menuActive, setMenuActive] = useState(false);
 
 	const { width } = useViewport();
@@ -39,7 +39,7 @@ const App: React.FunctionComponent = () => {
 
 	console.log(mediaQueries.isDesktopOrLaptop, ' : ', mediaQueries.isTabletOrMobile);
 
-	
+
   return (
 	  <div className={'main'} onClick={()=> menuActive ? setMenuActive(!menuActive) : 0}>
 			<div className={menuActive && !mediaQueries.isDesktopOrLaptop ? 'blur' : ''}/>

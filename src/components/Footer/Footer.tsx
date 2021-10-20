@@ -3,10 +3,13 @@ import classnames from 'classnames';
 import { useForm } from "react-hook-form";
 
 import './styles.css'
+import { IFormValues } from '../../interfaces/IFormValues'
+
 
 interface FooterProps {
 	mediaQueries: any;
 }
+
 
 export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 
@@ -30,10 +33,9 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 		formState: { errors, submitCount },
 		watch,
 		clearErrors
-	} = useForm();
-
+	} = useForm<IFormValues>()
 	/* обработка отправленных данных */
-	const onSubmit = (data:any, e:any) => {
+	const onSubmit = (data:IFormValues, e:any) => {
 		alert(JSON.stringify(data));
 		console.log(data, e);
 	}
@@ -48,7 +50,7 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 	console.log('WATCH:', name, phone, email, message);
 
 	return (
-			<div className={footerClassNames}>
+			<div className={footerClassNames} id='contact'>
 				<div className={containerClassNames}>
 					<div className={footerContainerClassNames}>
 						<div className="footer-container__social-box">
