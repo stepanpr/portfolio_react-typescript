@@ -2,5 +2,6 @@
 
 .about-container-x {
 	/* background-color: var(--b-light); */
-	height: 100vh;
+	/* height: 100vh; */
+	min-height: calc(100vh - 0.9rem)
 }
