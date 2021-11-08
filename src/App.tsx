@@ -22,7 +22,8 @@ const useViewport = () => {
 
 const App: React.FunctionComponent = () => {
 
-	const menuItems: ILink[] = [{value: 'главная', href: '#'}, {value: 'about', href: 'https://sberbank.ru'}, {value: 'контакты', href: '#contact'},];
+	/* массив ссылок меню */
+	const menuItems: ILink[] = [{value: 'главная', href: '#'}, {value: 'о нас', href: '#about'}, {value: 'контакты', href: '#contact'},];
 	const [menuActive, setMenuActive] = useState(false);
 
 	const { width } = useViewport();

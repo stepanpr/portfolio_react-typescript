@@ -37,6 +37,10 @@ code {
 /* #4c85a8 b-menu*/
 }
 
+/* body {
+	min-height: -webkit-fill-available;
+} */
+
 .main {
 	min-width: 408px;
 	height: 100vh;
@@ -47,9 +51,10 @@ code {
 
 /* ширина контейнера размера X */
 .container-x {
-	width: 60%;
+	width: 70%;
 	border: 1px dotted red;
 	margin: 20px auto;
+	/* height: 100vh; */
 }
 
 /* ширина контейнера размера M */

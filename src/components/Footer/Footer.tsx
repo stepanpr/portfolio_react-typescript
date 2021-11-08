@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { useForm } from "react-hook-form";
 
 import './styles.css'
-import { IFormValues } from '../../interfaces/IFormValues'
 
 
 interface FooterProps {
@@ -27,61 +26,16 @@ export const Footer: React.FunctionComponent<FooterProps> = (props) => {
 		'footer-container': true
 	});
 
-	const { 
-		register, 
-		handleSubmit,
-		formState: { errors, submitCount },
-		watch,
-		clearErrors
-	} = useForm<IFormValues>()
-	/* обработка отправленных данных */
-	const onSubmit = (data:IFormValues, e:any) => {
-		alert(JSON.stringify(data));
-		console.log(data, e);
-	}
-	/* обработка ошибок */
-	const onError = (errors: any, e: any) => console.log(errors.name, e);
-
-	const name = watch('name');
-	const phone = watch('phone');
-	const email = watch('email');
-	const message = watch('msg');
-
-	console.log('WATCH:', name, phone, email, message);
 
 	return (
-			<div className={footerClassNames} id='contact'>
+			<div className={footerClassNames}>
 				<div className={containerClassNames}>
 					<div className={footerContainerClassNames}>
 						<div className="footer-container__social-box">
-							<p>text text text</p> 
+							<p>social box</p> 
 						</div>
-						<div className="footer-container__form-box">
-
-							<form onSubmit={handleSubmit(onSubmit, onError)}>
-								
-								<input type="text" 
-								{...register('name', 
-								{required: 'Поле \'Имя\' обязательно для заполнения', minLength: {value: 2, message: 'Слишком короткое имя'}, 
-								maxLength: {value: 20, message: 'Слишком длинное имя'}})} placeholder='Имя' />
-								<div className='error-block'>{errors.name && <p className='error-message'> {errors.name.message} </p>}</div>
-								
-								
-								<input type="text" 
-								{...register('phone', {required: 'Введите номер телефона', minLength: {value: 2, message: 'Номер слишком короткий'}, 
-								maxLength: {value: 20, message: 'Слишком длинный номер'}})} placeholder='Телефон' />
-								<div className='error-block'>{errors.phone && <p className='error-message'> {errors.phone.message} </p>}</div>
-
-								<input type="text" {...register('email', {required: 'Введите e-mail'})} placeholder='Email' />
-								<div className='error-block'>{errors.email && <p className='error-message'> {errors.email.message} </p>}</div>
-
-								<textarea {...register('msg', {required: 'Введите текст сообщения', minLength: {value: 2, message: 'Сообщение слишком короткое'} })} 
-								placeholder='Сообщение'></textarea>
-								<div className='error-block'>{errors.msg && <p className='error-message-textarea'> {errors.msg.message} </p>}</div>
-
-								<input type="submit" />
-							</form>
-
+						<div className="footer-container__box2">
+							<p>box2</p> 
 						</div>
 					</div>
 					

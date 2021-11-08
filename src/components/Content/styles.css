@@ -1,4 +1,6 @@
-
+/*********************************************************/
+/***************************X*****************************/
+/*********************************************************/
 
 .content {
 	/* border: 1px solid rgb(0, 0, 0); */
@@ -10,4 +12,24 @@
 	/* height: calc(100% - 100px); */
 	/* min-height: 200px; */
 	/* height: 100%; */
+	color: rgb(48, 61, 63);
+	font-size: 1.1em;
+	line-height: 1.3em;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+
+
+.content h3 {
+	/* text-decoration: underline; */
+	color: var(--b-intense);
+	margin-bottom: 20px;
+	background:  linear-gradient(90deg, #B9D7EA, #F7FBFC);
+	display: block;
+	padding-left: 10px;
+	/* border-radius: 5px; */
+
+}
+
+
+

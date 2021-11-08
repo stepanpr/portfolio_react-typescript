@@ -23,61 +23,14 @@
 
 .footer-container__social-box {
 	/* border: 1px solid rgb(36, 39, 41); */
-
-}
-
-.footer-container__form-box {
-	/* border: 1px solid rgb(36, 39, 41); */
 	width: 50%;
+
 }
 
-.footer-container__form-box form {
-	display: flex;
-	flex-direction: column;
+.footer-container__box2 {
+	/* border: 1px solid rgb(36, 39, 41); */
+	width: 50%;	
 }
-
-.footer-container__form-box form input,
-.footer-container__form-box form textarea {
-	margin-bottom: 12px;
-	line-height: 25px;
-	border-radius: 5px;
-	border: 1px solid var(--b-intense);
-}
-
-.footer-container__form-box form textarea {
-	resize: none;
-}
-
-.footer-container__form-box input[type=submit] {
-	height: 30px;
-	width: 200px;
-	border: 2px;
-	box-shadow: 3px 3px 4px 0 var(--b-intense);
-	border: 1px solid var(--b-medium);
-	border-radius: 5px;
-}
-
-.error-block {
-	position: relative;
-}
-.error-message {
-	color: red;
-	display: block;
-	position: absolute;
-	font-size: 10px;
-	top: -40px;
-	right: 20px;
-}
-
-.error-message-textarea {
-	color: red;
-	display: block;
-	position: absolute;
-	font-size: 10px;
-	top: -60px;
-	right: 20px;
-}
-
 
 .copyright {
 	/* border: 1px solid rgb(36, 39, 41); */
