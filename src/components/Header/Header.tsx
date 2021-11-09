@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 
 import './styles.css'
@@ -14,21 +14,13 @@ interface HeaderProps {
 	setMenuActive: any;
 	mediaQueries: any;
 	menuItems: ILink[];
+	scrolled: number;
+	setScrolled: any;
+	// setScrollZero: any;
+	handleClickMenu: any;
 }
 
 export const Header: React.FunctionComponent<HeaderProps> = (props) => {
-
-
-	useEffect(() => {
-		const handleEscPress = (event: any) => {
-			if (event.keyCode === 27 && props.menuActive)
-				props.setMenuActive(!props.menuActive);
-		}
-		window.addEventListener("keydown", handleEscPress);
-		return () => {
-		  window.removeEventListener("keydown", handleEscPress);
-		};
-	  });
 
 	// useEffect(() => { 
 	// 	const handleClick = () => props.menuActive ? props.setMenuActive(!props.menuActive) : 0;
@@ -37,9 +29,17 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 	// });
 
 	const headerClassNames = classnames({
-		'header-x': true,
-		'header-m': props.mediaQueries.isTabletOrMobile
+		'header-x': props.mediaQueries.isDesktopOrLaptop && !props.scrolled,
+		'header-x-scrolled': props.mediaQueries.isDesktopOrLaptop && props.scrolled,
+		'header-m': props.mediaQueries.isTabletOrMobile && !props.scrolled,
+		'header-m-scrolled': props.mediaQueries.isTabletOrMobile && props.scrolled,
+		'header-s': props.mediaQueries.isMobile && !props.scrolled,
+		'header-s-scrolled': props.mediaQueries.isMobile && props.scrolled,
+
 	});
+	// const headerScrolledClassName = classnames({
+	// 	'header-x-scroled': props.scrolled
+	// })
 
 	const logoClassNames = classnames({
 		'logo-x': true,
@@ -55,6 +55,8 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 	const bbtnClassNames = classnames({
 		'bbtn': true,
 		'bbtn-visible': props.mediaQueries.isTabletOrMobile,
+		'bbtn-visible-scroll': props.mediaQueries.isTabletOrMobile && props.scrolled,
+
 		'bbtn-rotated': props.menuActive && (props.mediaQueries.isTabletOrMobile || props.mediaQueries.isMobile),
 		// 'bbtn-s': props.mediaQueries.isMobile,
 	});
@@ -66,6 +68,8 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 	const underlineLinkClassName = classnames({
 		'underlineLink': props.mediaQueries.isDesktopOrLaptop
 	});
+
+
 	console.log(props.menuActive , 'd343434343dd')
 
 	// const containerClassNames = classnames({   !вариант с элементами хедера помещёнными в контейнер
@@ -86,7 +90,7 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 					</div>
 
 
-					<div className={bbtnClassNames} onClick={() => props.setMenuActive(!props.menuActive)}>
+					<div className={bbtnClassNames} onClick={props.handleClickMenu}>
 						<span className={bbtnSpanClassNames}/>
 					</div>
 
@@ -95,7 +99,7 @@ export const Header: React.FunctionComponent<HeaderProps> = (props) => {
 						<ul>
 							{props.menuItems.map((menuItem: ILink, i: number) =>
 								<li key={i.toString()} onMouseOver={()=> {console.log('move') }}>
-									<a href={menuItem.href} onClick={() => props.setMenuActive(!props.menuActive)}>{menuItem.value}</a>
+									<a href={menuItem.href} onClick={props.handleClickMenu}>{menuItem.value}</a>
 									 <span className={underlineLinkClassName}></span> 
 									{/* <span className={underlineLinkClassName}></span> */}
 									{/* <span className="material-icons">{menuItem.icon}</span> */}

@@ -25,7 +25,7 @@ export const General: React.FC<GeneralProps> = (props) => {
 	return (
 
 		<div className={containerClassNames}>
-			<div className='general-container-x'>
+			<div className={generalContainerClassNames}>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia, odio ac feugiat molestie, purus odio euismod ipsum, vitae suscipit turpis nulla sed mi. Integer condimentum augue quis libero euismod, eget aliquam nisl varius. Integer aliquam, felis in consectetur volutpat, metus tortor sagittis leo, ut hendrerit dui felis et justo. Etiam bibendum non sapien a porta. Vestibulum faucibus tempor nunc cursus cursus. Vivamus iaculis tortor quis quam pulvinar, ut finibus mauris tempor. Nullam non maximus est, id tempor leo.
 
 		Mauris congue est non aliquet facilisis. Cras eu viverra nisi. Curabitur sit amet tincidunt ante, in iaculis sapien. Curabitur at dictum diam, in aliquet augue. Mauris a mauris ante. Phasellus vehicula mauris at dapibus tincidunt. Sed in nisl id nisi suscipit vehicula elementum at felis. Suspendisse porttitor velit sapien, ut sollicitudin libero elementum ut.

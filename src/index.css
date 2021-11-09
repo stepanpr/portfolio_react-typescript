@@ -37,9 +37,15 @@ code {
 /* #4c85a8 b-menu*/
 }
 
-/* body {
-	min-height: -webkit-fill-available;
-} */
+body {
+	/* min-height: -webkit-fill-available; */
+	/* background:  radial-gradient(circle, transparent 70%, black),
+	url(1.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  */
+}
 
 .main {
 	min-width: 408px;
@@ -47,6 +53,13 @@ code {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
+	overflow: visible;
+
+}
+
+.main-no-scroll {
+	
+	overflow: hidden;
 }
 
 /* ширина контейнера размера X */
